@@ -27,6 +27,7 @@ export default function TeacherLayout({ title, children }: Props) {
     const navigation = [
         { name: 'Dashboard', href: '/guru/dashboard', icon: LayoutDashboard, current: url === '/guru/dashboard' },
         { name: 'Kelas Saya', href: '/guru/kelas', icon: Users, current: url.startsWith('/guru/kelas') },
+        { name: 'Bank Soal', href: '/guru/soal', icon: BookOpen, current: url.startsWith('/guru/soal') },
     ];
 
     return (

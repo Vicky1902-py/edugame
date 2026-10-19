@@ -70,5 +70,15 @@ Route::middleware(['auth', 'role:guru,admin'])->group(function () {
     Route::put('/guru/kelas/{id}', [ClassroomController::class, 'update'])->name('teacher.classes.update');
     Route::delete('/guru/kelas/{id}', [ClassroomController::class, 'destroy'])->name('teacher.classes.destroy');
 
+    // Bank Soal
+    Route::get('/guru/soal', [\App\Http\Controllers\Teacher\QuestionBankController::class, 'index'])->name('teacher.questions.index');
+    Route::get('/guru/soal/create', [\App\Http\Controllers\Teacher\QuestionBankController::class, 'create'])->name('teacher.questions.create');
+    Route::post('/guru/soal', [\App\Http\Controllers\Teacher\QuestionBankController::class, 'store'])->name('teacher.questions.store');
+    Route::get('/guru/soal/{id}/edit', [\App\Http\Controllers\Teacher\QuestionBankController::class, 'edit'])->name('teacher.questions.edit');
+    Route::put('/guru/soal/{id}', [\App\Http\Controllers\Teacher\QuestionBankController::class, 'update'])->name('teacher.questions.update');
+    Route::delete('/guru/soal/{id}', [\App\Http\Controllers\Teacher\QuestionBankController::class, 'destroy'])->name('teacher.questions.destroy');
+    Route::post('/guru/soal/import-csv', [\App\Http\Controllers\Teacher\QuestionBankController::class, 'importCsv'])->name('teacher.questions.import');
+    Route::get('/guru/soal/template-csv', [\App\Http\Controllers\Teacher\QuestionBankController::class, 'downloadTemplate'])->name('teacher.questions.template');
+
     Route::post('/guru/logout', [TeacherAuthController::class, 'logout'])->name('teacher.logout');
 });
