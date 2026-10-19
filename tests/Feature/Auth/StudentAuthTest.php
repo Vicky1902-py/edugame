@@ -50,6 +50,26 @@ class StudentAuthTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_student_can_render_dashboard_page(): void
+    {
+        $student = User::create([
+            'school_id' => $this->class->school_id,
+            'name' => 'Budi Dashboard',
+            'username' => 'budi_dash',
+            'pin_hash' => Hash::make('1234'),
+            'role' => 'siswa',
+        ]);
+
+        Enrollment::create([
+            'class_id' => $this->class->id,
+            'student_id' => $student->id,
+        ]);
+
+        $response = $this->actingAs($student)->get('/siswa/dashboard');
+
+        $response->assertStatus(200);
+    }
+
     public function test_new_student_can_login_and_be_registered_to_class(): void
     {
         $response = $this->post('/masuk-siswa', [
