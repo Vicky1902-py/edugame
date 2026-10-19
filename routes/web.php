@@ -89,3 +89,30 @@ Route::middleware(['auth', 'role:guru,admin'])->group(function () {
 
     Route::post('/guru/logout', [TeacherAuthController::class, 'logout'])->name('teacher.logout');
 });
+
+/*
+|--------------------------------------------------------------------------
+| Area Superadmin Platform (Role: Admin)
+|--------------------------------------------------------------------------
+*/
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [\App\Http\Controllers\Admin\AdminDashboardController::class, 'index'])->name('admin.dashboard');
+
+    // Manajemen Sekolah
+    Route::get('/sekolah', [\App\Http\Controllers\Admin\AdminSchoolController::class, 'index'])->name('admin.schools.index');
+    Route::post('/sekolah', [\App\Http\Controllers\Admin\AdminSchoolController::class, 'store'])->name('admin.schools.store');
+    Route::put('/sekolah/{id}', [\App\Http\Controllers\Admin\AdminSchoolController::class, 'update'])->name('admin.schools.update');
+    Route::delete('/sekolah/{id}', [\App\Http\Controllers\Admin\AdminSchoolController::class, 'destroy'])->name('admin.schools.destroy');
+
+    // Manajemen Pengguna (Admin, Guru, Siswa)
+    Route::get('/pengguna', [\App\Http\Controllers\Admin\AdminUserController::class, 'index'])->name('admin.users.index');
+    Route::post('/pengguna', [\App\Http\Controllers\Admin\AdminUserController::class, 'store'])->name('admin.users.store');
+    Route::put('/pengguna/{id}', [\App\Http\Controllers\Admin\AdminUserController::class, 'update'])->name('admin.users.update');
+    Route::post('/pengguna/{id}/reset-password', [\App\Http\Controllers\Admin\AdminUserController::class, 'resetPassword'])->name('admin.users.reset-password');
+    Route::post('/pengguna/{id}/reset-pin', [\App\Http\Controllers\Admin\AdminUserController::class, 'resetPin'])->name('admin.users.reset-pin');
+    Route::delete('/pengguna/{id}', [\App\Http\Controllers\Admin\AdminUserController::class, 'destroy'])->name('admin.users.destroy');
+
+    // Manajemen Game & Konfigurasi
+    Route::get('/game', [\App\Http\Controllers\Admin\AdminGameController::class, 'index'])->name('admin.games.index');
+    Route::put('/game/{id}', [\App\Http\Controllers\Admin\AdminGameController::class, 'updateConfig'])->name('admin.games.update');
+});

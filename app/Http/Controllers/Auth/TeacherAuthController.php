@@ -26,15 +26,20 @@ class TeacherAuthController extends Controller
      */
     public function showLoginForm(): Response|RedirectResponse
     {
-        if (Auth::check() && in_array(Auth::user()->role, ['guru', 'admin'])) {
-            return redirect()->route('teacher.dashboard');
+        if (Auth::check()) {
+            if (Auth::user()->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            }
+            if (Auth::user()->role === 'guru') {
+                return redirect()->route('teacher.dashboard');
+            }
         }
 
         return Inertia::render('Auth/TeacherLogin');
     }
 
     /**
-     * Proses login guru.
+     * Proses login guru dan staf admin.
      */
     public function login(TeacherLoginRequest $request): RedirectResponse
     {
@@ -55,6 +60,12 @@ class TeacherAuthController extends Controller
 
             RateLimiter::clear($throttleKey);
             $request->session()->regenerate();
+
+            $user = Auth::user();
+            if ($user && $user->role === 'admin') {
+                return redirect()->intended(route('admin.dashboard'))
+                    ->with('success', 'Selamat datang kembali, Super Administrator!');
+            }
 
             return redirect()->intended(route('teacher.dashboard'))
                 ->with('success', 'Selamat datang kembali, Bapak/Ibu Guru!');

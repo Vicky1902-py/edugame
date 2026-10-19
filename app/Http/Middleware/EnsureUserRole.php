@@ -19,13 +19,16 @@ class EnsureUserRole
         $user = $request->user();
 
         if (!$user) {
-            if (in_array('guru', $roles)) {
+            if (in_array('admin', $roles) || in_array('guru', $roles)) {
                 return redirect()->route('teacher.login');
             }
             return redirect()->route('student.login');
         }
 
         if (!in_array($user->role, $roles)) {
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            }
             if ($user->role === 'guru') {
                 return redirect()->route('teacher.dashboard');
             }
