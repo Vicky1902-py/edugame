@@ -14,10 +14,12 @@ class CreateSuperadminCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'make:superadmin
+    protected $signature = 'app:make-superadmin
                             {--name= : Nama lengkap superadmin}
                             {--email= : Alamat email superadmin}
                             {--password= : Kata sandi superadmin}';
+
+    protected $aliases = ['make:superadmin'];
 
     /**
      * The console command description.
@@ -47,6 +49,7 @@ class CreateSuperadminCommand extends Command
             $user->update([
                 'name' => $name,
                 'role' => 'admin',
+                'status' => 'active',
                 'password' => Hash::make($password),
                 'school_id' => $user->school_id ?: $defaultSchool->id,
             ]);
@@ -58,10 +61,17 @@ class CreateSuperadminCommand extends Command
                 'email' => $email,
                 'password' => Hash::make($password),
                 'role' => 'admin',
+                'status' => 'active',
                 'school_id' => $defaultSchool->id,
             ]);
 
             $this->info("Akun Superadmin [{$email}] berhasil dibuat!");
+        }
+
+        // Assign Spatie Role superadmin jika role terdaftar
+        if (class_exists(\Spatie\Permission\Models\Role::class)) {
+            \Spatie\Permission\Models\Role::firstOrCreate(['name' => 'superadmin', 'guard_name' => 'web']);
+            $user->assignRole('superadmin');
         }
 
         $this->table(

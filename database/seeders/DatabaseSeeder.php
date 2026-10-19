@@ -37,13 +37,13 @@ class DatabaseSeeder extends Seeder
             'school_id' => $school->id,
         ]);
 
-        // Platform Admin
-        User::create([
-            'name' => 'Administrator Platform',
-            'email' => 'admin@edugame.id',
-            'password' => Hash::make('admin12345'),
-            'role' => 'admin',
-            'school_id' => $school->id,
+        // Platform Admin & Roles
+        $this->call([
+            RolesAndPermissionsSeeder::class,
+            DefaultSettingsSeeder::class,
+            FeatureFlagsSeeder::class,
+            WordBlacklistSeeder::class,
+            CmsInitialContentSeeder::class,
         ]);
 
         // 3. Kelas
