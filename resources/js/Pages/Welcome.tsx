@@ -21,8 +21,32 @@ import {
     ChevronRight,
 } from 'lucide-react';
 
+interface AnnouncementItem {
+    id: number;
+    title: string;
+    message: string;
+    type: string;
+}
+
+interface TestimonialItem {
+    id: number;
+    author_name: string;
+    author_title: string;
+    avatar_url?: string;
+    quote: string;
+    rating: number;
+}
+
+interface MenuItem {
+    id: number;
+    title: string;
+    url: string;
+    target: string;
+}
+
 interface Props {
     appName?: string;
+    appTagline?: string;
     auth?: {
         user?: {
             id: number;
@@ -36,6 +60,13 @@ interface Props {
         students: number;
         questions: number;
     };
+    announcements?: AnnouncementItem[];
+    testimonials?: TestimonialItem[];
+    menus?: {
+        header?: MenuItem[];
+        footer_1?: MenuItem[];
+        footer_2?: MenuItem[];
+    };
 }
 
 // 3D Point interface
@@ -45,7 +76,15 @@ interface Point3D {
     z: number;
 }
 
-export default function Welcome({ appName = 'EduGame Indonesia', auth, stats }: Props) {
+export default function Welcome({
+    appName = 'EduGame Indonesia',
+    appTagline,
+    auth,
+    stats,
+    announcements = [],
+    testimonials = [],
+    menus,
+}: Props) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [soundEnabled, setSoundEnabled] = useState(false);
@@ -353,6 +392,16 @@ export default function Welcome({ appName = 'EduGame Indonesia', auth, stats }: 
             <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[150px] pointer-events-none -z-10" />
             <div className="absolute bottom-10 left-10 w-[600px] h-[400px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none -z-10" />
 
+            {/* In-App Broadcast Announcements Bar */}
+            {announcements.length > 0 && (
+                <div className="bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-rose-500/20 border-b border-amber-500/30 px-6 py-2 text-center text-xs font-medium text-amber-200 flex items-center justify-center gap-2 backdrop-blur-md">
+                    <span className="px-2 py-0.5 rounded-full bg-amber-500 text-slate-950 font-black text-[10px] uppercase tracking-wider">
+                        PENGUMUMAN
+                    </span>
+                    <span>{announcements[0].title}: {announcements[0].message}</span>
+                </div>
+            )}
+
             {/* Top Navigation Bar */}
             <header className="px-6 py-4 max-w-7xl w-full mx-auto flex items-center justify-between sticky top-0 z-40 backdrop-blur-xl bg-slate-950/70 border-b border-slate-800/60">
                 <Link href="/" className="flex items-center gap-3 group">
@@ -366,9 +415,22 @@ export default function Welcome({ appName = 'EduGame Indonesia', auth, stats }: 
                                 V2.0 3D
                             </span>
                         </div>
-                        <p className="text-[11px] text-slate-400 font-medium">Petualangan Belajar & Sains Interaktif</p>
+                        <p className="text-[11px] text-slate-400 font-medium">{appTagline || 'Petualangan Belajar & Sains Interaktif'}</p>
                     </div>
                 </Link>
+
+                {/* CMS Navigation Menu */}
+                <nav className="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-300">
+                    <Link href="/berita" className="hover:text-amber-400 transition">
+                        Warta & Berita
+                    </Link>
+                    <Link href="/halaman/tentang-kami" className="hover:text-amber-400 transition">
+                        Tentang Kami
+                    </Link>
+                    <Link href="/halaman/faq" className="hover:text-amber-400 transition">
+                        Tanya Jawab (FAQ)
+                    </Link>
+                </nav>
 
                 <div className="flex items-center gap-3">
                     {/* Audio Toggle Button */}
@@ -683,6 +745,50 @@ export default function Welcome({ appName = 'EduGame Indonesia', auth, stats }: 
                     </div>
                 </div>
 
+                {/* CMS Testimonials Showcase */}
+                {testimonials.length > 0 && (
+                    <div className="mt-20">
+                        <div className="text-center max-w-2xl mx-auto mb-10">
+                            <span className="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+                                SUARA PENDIDIK
+                            </span>
+                            <h2 className="text-2xl md:text-3xl font-black text-white mt-3">
+                                Apa Kata Guru & Kepala Sekolah?
+                            </h2>
+                            <p className="text-xs md:text-sm text-slate-400 mt-2">
+                                Ribuan kelas telah merasakan perubahan antusiasme belajar siswa berkat metode gamifikasi EduGame.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {testimonials.map((testi) => (
+                                <div
+                                    key={testi.id}
+                                    className="p-6 rounded-3xl bg-slate-900/80 border border-slate-800 shadow-xl flex flex-col justify-between"
+                                >
+                                    <div className="mb-4">
+                                        <div className="flex items-center gap-1 text-amber-400 mb-3 text-sm">
+                                            {'⭐'.repeat(testi.rating || 5)}
+                                        </div>
+                                        <p className="text-xs md:text-sm text-slate-300 italic leading-relaxed">
+                                            "{testi.quote}"
+                                        </p>
+                                    </div>
+                                    <div className="flex items-center gap-3 pt-4 border-t border-slate-800">
+                                        <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-amber-400 to-orange-500 flex items-center justify-center font-bold text-slate-950 text-xs">
+                                            {testi.author_name.charAt(0)}
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xs font-bold text-white">{testi.author_name}</h4>
+                                            <p className="text-[10px] text-slate-400">{testi.author_title}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
                 {/* Live Stats Counters Bar */}
                 {stats && (
                     <div className="mt-16 p-6 rounded-3xl bg-slate-950/80 border border-slate-800/80 shadow-2xl flex flex-wrap items-center justify-around gap-6 text-center">
@@ -711,7 +817,7 @@ export default function Welcome({ appName = 'EduGame Indonesia', auth, stats }: 
 
             {/* Modern Footer with Quick Links */}
             <footer className="mt-16 border-t border-slate-800/80 bg-slate-950/90 py-8 px-6 text-xs text-slate-400 backdrop-blur-md">
-                <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
                         <div className="w-7 h-7 rounded-xl bg-gradient-to-tr from-amber-400 to-orange-500 flex items-center justify-center text-slate-950 font-black text-xs">
                             🎮
@@ -721,16 +827,25 @@ export default function Welcome({ appName = 'EduGame Indonesia', auth, stats }: 
                         </span>
                     </div>
 
-                    <div className="flex items-center gap-6 text-slate-400 font-medium">
+                    <div className="flex flex-wrap items-center gap-6 text-slate-400 font-medium">
                         <Link href="/masuk-siswa" className="hover:text-emerald-400 transition">
                             Masuk Siswa
                         </Link>
                         <Link href="/login-guru" className="hover:text-indigo-400 transition">
                             Portal Guru
                         </Link>
-                        <Link href="/login-guru" className="hover:text-amber-400 transition flex items-center gap-1">
-                            <Shield className="w-3.5 h-3.5" />
-                            Superadmin
+                        <Link href="/halaman/tentang-kami" className="hover:text-slate-200 transition">
+                            Tentang Kami
+                        </Link>
+                        <Link href="/halaman/kebijakan-privasi" className="hover:text-slate-200 transition">
+                            Kebijakan Privasi
+                        </Link>
+                        <Link href="/halaman/syarat-layanan" className="hover:text-slate-200 transition">
+                            Syarat Layanan
+                        </Link>
+                        <Link href="/admin" className="hover:text-amber-400 transition flex items-center gap-1 font-bold">
+                            <Shield className="w-3.5 h-3.5 text-amber-500" />
+                            Panel Superadmin
                         </Link>
                     </div>
                 </div>

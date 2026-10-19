@@ -11,21 +11,37 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Http\Controllers\PublicCmsController;
+
 /*
 |--------------------------------------------------------------------------
-| Halaman Publik
+| Halaman Publik & CMS Website
 |--------------------------------------------------------------------------
 */
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'stats' => [
-            'schools' => School::count(),
-            'teachers' => User::where('role', 'guru')->count(),
-            'students' => User::where('role', 'siswa')->count(),
-            'questions' => Question::count(),
-        ],
-    ]);
-})->name('home');
+Route::get('/', [PublicCmsController::class, 'home'])->name('home');
+Route::get('/halaman/{slug}', [PublicCmsController::class, 'showPage'])->name('cms.page');
+Route::get('/berita', [PublicCmsController::class, 'blogIndex'])->name('cms.blog.index');
+Route::get('/berita/{slug}', [PublicCmsController::class, 'blogShow'])->name('cms.blog.show');
+Route::post('/kontak', [PublicCmsController::class, 'submitContact'])->name('cms.contact.submit');
+
+Route::get('/impersonate/leave', function () {
+    if (session()->has('impersonator_id')) {
+        $impersonatorId = session()->pull('impersonator_id');
+        $impersonationLogId = session()->pull('impersonation_log_id');
+
+        if ($impersonationLogId) {
+            \App\Models\ImpersonationLog::where('id', $impersonationLogId)->update(['ended_at' => now()]);
+        }
+
+        $superadmin = \App\Models\User::find($impersonatorId);
+        if ($superadmin) {
+            \Illuminate\Support\Facades\Auth::login($superadmin);
+            return redirect('/admin')->with('success', 'Sesi impersonasi berakhir. Kembali ke panel Superadmin.');
+        }
+    }
+
+    return redirect('/admin');
+})->name('impersonate.leave');
 
 /*
 |--------------------------------------------------------------------------

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -11,7 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     use HasFactory, Notifiable, HasRoles, SoftDeletes;
 
@@ -60,7 +62,49 @@ class User extends Authenticatable
 
     public function isAdmin(): bool
     {
-        return $this->role === 'admin';
+        return $this->role === 'admin' || $this->hasRole('superadmin');
+    }
+
+    public function isSuperadmin(): bool
+    {
+        return $this->hasRole('superadmin') || $this->role === 'admin';
+    }
+
+    /**
+     * Otorisasi akses ke Filament Panel.
+     * Hanya pengguna dengan role superadmin/admin dan status active yang diizinkan.
+     */
+    public function canAccessPanel(Panel $panel): bool
+    {
+        if ($panel->getId() === 'admin') {
+            return $this->isSuperadmin() && $this->status === 'active';
+        }
+
+        return false;
+    }
+
+    protected static function booted(): void
+    {
+        static::deleting(function (User $user) {
+            if ($user->role === 'admin' || $user->hasRole('superadmin')) {
+                $superadminCount = User::where('role', 'admin')
+                    ->orWhereHas('roles', fn ($q) => $q->where('name', 'superadmin'))
+                    ->count();
+
+                if ($superadminCount <= 1) {
+                    throw new \RuntimeException('Superadmin terakhir tidak dapat dihapus untuk mencegah hilangnya kendali platform.');
+                }
+            }
+        });
+
+        static::updating(function (User $user) {
+            if ($user->isDirty('role') && $user->getOriginal('role') === 'admin' && $user->role !== 'admin') {
+                $superadminCount = User::where('role', 'admin')->count();
+                if ($superadminCount <= 1) {
+                    throw new \RuntimeException('Peran Superadmin terakhir tidak dapat diturunkan.');
+                }
+            }
+        });
     }
 
     public function school(): BelongsTo

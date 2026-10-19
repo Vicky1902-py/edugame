@@ -13,6 +13,7 @@ class Question extends Model
 
     protected $fillable = [
         'topic_id',
+        'author_id',
         'tipe',
         'teks',
         'opsi_json',
@@ -20,6 +21,8 @@ class Question extends Model
         'penjelasan',
         'kesulitan',
         'versi',
+        'status_moderasi',
+        'moderation_notes',
     ];
 
     protected $casts = [
@@ -30,6 +33,11 @@ class Question extends Model
     public function topic(): BelongsTo
     {
         return $this->belongsTo(Topic::class, 'topic_id');
+    }
+
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'author_id');
     }
 
     public function answers(): HasMany

@@ -14,16 +14,25 @@ class XpLedger extends Model
 
     protected $fillable = [
         'user_id',
+        'causer_id',
         'jumlah_xp',
+        'balance_after',
         'sumber',
+        'reason',
     ];
 
     protected $casts = [
         'jumlah_xp' => 'integer',
+        'balance_after' => 'integer',
     ];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function causer(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'causer_id');
     }
 }
