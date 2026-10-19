@@ -32,13 +32,13 @@ class StudentDashboardController extends Controller
         $activeClass = $enrollment?->schoolClass;
 
         // Hitung total XP
-        $totalXp = (int) XpLedger::where('student_id', $student->id)->sum('jumlah_xp');
+        $totalXp = (int) XpLedger::where('user_id', $student->id)->sum('jumlah_xp');
         $level = max(1, (int) floor($totalXp / 150) + 1);
         $currentLevelXp = $totalXp % 150;
         $nextLevelXp = 150;
 
         // Ambil lencana yang sudah diperoleh
-        $userBadges = UserBadge::where('student_id', $student->id)
+        $userBadges = UserBadge::where('user_id', $student->id)
             ->with('badge')
             ->get();
 

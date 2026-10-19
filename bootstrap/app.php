@@ -18,6 +18,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => \App\Http\Middleware\EnsureUserRole::class,
         ]);
+
+        $middleware->redirectGuestsTo(fn ($request) => $request->is('guru*') ? route('teacher.login') : route('student.login'));
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

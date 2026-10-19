@@ -1,102 +1,124 @@
 {
-  "_TeacherLayout-DM_zCFhH.js": {
-    "file": "assets/TeacherLayout-DM_zCFhH.js",
+  "_TeacherLayout-CASVnMJw.js": {
+    "file": "assets/TeacherLayout-CASVnMJw.js",
     "name": "TeacherLayout",
     "imports": [
       "resources/js/app.tsx",
-      "_createLucideIcon-D6X761rg.js",
-      "_users-6bAvmn1A.js",
-      "_graduation-cap-BeICV4w7.js",
-      "_log-out-B2hMIbY2.js",
-      "_circle-alert-BnrzVxHJ.js"
+      "_createLucideIcon-ChtDDa9_.js",
+      "_users-Di3M1FRr.js",
+      "_graduation-cap-DYre7o8E.js",
+      "_log-out-Ci32xuCv.js",
+      "_circle-check-BPUzG3k7.js",
+      "_circle-alert-8MfNzf_c.js"
     ]
   },
-  "_arrow-left-DlmkcTH2.js": {
-    "file": "assets/arrow-left-DlmkcTH2.js",
+  "_arrow-left-Co_EPVgd.js": {
+    "file": "assets/arrow-left-Co_EPVgd.js",
     "name": "arrow-left",
     "imports": [
-      "_createLucideIcon-D6X761rg.js"
+      "_createLucideIcon-ChtDDa9_.js"
     ]
   },
-  "_circle-alert-BnrzVxHJ.js": {
-    "file": "assets/circle-alert-BnrzVxHJ.js",
+  "_circle-alert-8MfNzf_c.js": {
+    "file": "assets/circle-alert-8MfNzf_c.js",
     "name": "circle-alert",
     "imports": [
-      "_createLucideIcon-D6X761rg.js"
+      "_createLucideIcon-ChtDDa9_.js"
     ]
   },
-  "_circle-plus-C0Yaxsml.js": {
-    "file": "assets/circle-plus-C0Yaxsml.js",
+  "_circle-check-BPUzG3k7.js": {
+    "file": "assets/circle-check-BPUzG3k7.js",
+    "name": "circle-check",
+    "imports": [
+      "_createLucideIcon-ChtDDa9_.js"
+    ]
+  },
+  "_circle-plus-D82zocLJ.js": {
+    "file": "assets/circle-plus-D82zocLJ.js",
     "name": "circle-plus",
     "imports": [
-      "_createLucideIcon-D6X761rg.js"
+      "_createLucideIcon-ChtDDa9_.js"
     ]
   },
-  "_copy-B3b3WARA.js": {
-    "file": "assets/copy-B3b3WARA.js",
+  "_copy-KA7wXFZY.js": {
+    "file": "assets/copy-KA7wXFZY.js",
     "name": "copy",
     "imports": [
-      "_createLucideIcon-D6X761rg.js"
+      "_createLucideIcon-ChtDDa9_.js"
     ]
   },
-  "_createLucideIcon-D6X761rg.js": {
-    "file": "assets/createLucideIcon-D6X761rg.js",
+  "_createLucideIcon-ChtDDa9_.js": {
+    "file": "assets/createLucideIcon-ChtDDa9_.js",
     "name": "createLucideIcon",
     "imports": [
       "resources/js/app.tsx"
     ]
   },
-  "_graduation-cap-BeICV4w7.js": {
-    "file": "assets/graduation-cap-BeICV4w7.js",
+  "_gamepad-2-CLezJ_oj.js": {
+    "file": "assets/gamepad-2-CLezJ_oj.js",
+    "name": "gamepad-2",
+    "imports": [
+      "_createLucideIcon-ChtDDa9_.js"
+    ]
+  },
+  "_graduation-cap-DYre7o8E.js": {
+    "file": "assets/graduation-cap-DYre7o8E.js",
     "name": "graduation-cap",
     "imports": [
-      "_createLucideIcon-D6X761rg.js"
+      "_createLucideIcon-ChtDDa9_.js"
     ]
   },
-  "_log-out-B2hMIbY2.js": {
-    "file": "assets/log-out-B2hMIbY2.js",
+  "_log-out-Ci32xuCv.js": {
+    "file": "assets/log-out-Ci32xuCv.js",
     "name": "log-out",
     "imports": [
-      "_createLucideIcon-D6X761rg.js"
+      "_createLucideIcon-ChtDDa9_.js"
     ]
   },
-  "_mail-BTGDHOsu.js": {
-    "file": "assets/mail-BTGDHOsu.js",
+  "_mail-DmY5E_PC.js": {
+    "file": "assets/mail-DmY5E_PC.js",
     "name": "mail",
     "imports": [
-      "_createLucideIcon-D6X761rg.js"
+      "_createLucideIcon-ChtDDa9_.js"
     ]
   },
-  "_sparkles-VEjg5Fsg.js": {
-    "file": "assets/sparkles-VEjg5Fsg.js",
+  "_sparkles-BH1DrFq5.js": {
+    "file": "assets/sparkles-BH1DrFq5.js",
     "name": "sparkles",
     "imports": [
-      "_createLucideIcon-D6X761rg.js"
+      "_createLucideIcon-ChtDDa9_.js"
     ]
   },
-  "_trophy-B7iPhfio.js": {
-    "file": "assets/trophy-B7iPhfio.js",
+  "_trophy-b0PlVzya.js": {
+    "file": "assets/trophy-b0PlVzya.js",
     "name": "trophy",
     "imports": [
-      "_createLucideIcon-D6X761rg.js"
+      "_createLucideIcon-ChtDDa9_.js"
     ]
   },
-  "_users-6bAvmn1A.js": {
-    "file": "assets/users-6bAvmn1A.js",
+  "_users-Di3M1FRr.js": {
+    "file": "assets/users-Di3M1FRr.js",
     "name": "users",
     "imports": [
-      "_createLucideIcon-D6X761rg.js"
+      "_createLucideIcon-ChtDDa9_.js"
     ]
   },
-  "_x-eaCd7h36.js": {
-    "file": "assets/x-eaCd7h36.js",
+  "_x-BO8rDGdq.js": {
+    "file": "assets/x-BO8rDGdq.js",
     "name": "x",
     "imports": [
-      "_createLucideIcon-D6X761rg.js"
+      "_createLucideIcon-ChtDDa9_.js"
+    ]
+  },
+  "_zap-BBPESIfG.js": {
+    "file": "assets/zap-BBPESIfG.js",
+    "name": "zap",
+    "imports": [
+      "_createLucideIcon-ChtDDa9_.js"
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app--JsV3UGL.css",
+    "file": "assets/app-CBS_wclG.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -105,210 +127,235 @@
     ]
   },
   "resources/js/Pages/Auth/StudentLogin.tsx": {
-    "file": "assets/StudentLogin-D-bL1ZWA.js",
+    "file": "assets/StudentLogin-B_R1lhpX.js",
     "name": "StudentLogin",
     "src": "resources/js/Pages/Auth/StudentLogin.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_arrow-left-DlmkcTH2.js",
-      "_circle-alert-BnrzVxHJ.js",
-      "_sparkles-VEjg5Fsg.js",
-      "_createLucideIcon-D6X761rg.js"
+      "_arrow-left-Co_EPVgd.js",
+      "_circle-alert-8MfNzf_c.js",
+      "_sparkles-BH1DrFq5.js",
+      "_createLucideIcon-ChtDDa9_.js"
     ],
     "css": [
-      "assets/app--JsV3UGL.css"
+      "assets/app-CBS_wclG.css"
     ]
   },
   "resources/js/Pages/Auth/TeacherLogin.tsx": {
-    "file": "assets/TeacherLogin-klCDo8q2.js",
+    "file": "assets/TeacherLogin-C_Nt3wD2.js",
     "name": "TeacherLogin",
     "src": "resources/js/Pages/Auth/TeacherLogin.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_arrow-left-DlmkcTH2.js",
-      "_graduation-cap-BeICV4w7.js",
-      "_mail-BTGDHOsu.js",
-      "_createLucideIcon-D6X761rg.js",
-      "_sparkles-VEjg5Fsg.js"
+      "_arrow-left-Co_EPVgd.js",
+      "_graduation-cap-DYre7o8E.js",
+      "_mail-DmY5E_PC.js",
+      "_createLucideIcon-ChtDDa9_.js",
+      "_sparkles-BH1DrFq5.js"
     ],
     "css": [
-      "assets/app--JsV3UGL.css"
+      "assets/app-CBS_wclG.css"
     ]
   },
   "resources/js/Pages/Auth/TeacherRegister.tsx": {
-    "file": "assets/TeacherRegister-B2gEXQ9x.js",
+    "file": "assets/TeacherRegister-CcuJeISj.js",
     "name": "TeacherRegister",
     "src": "resources/js/Pages/Auth/TeacherRegister.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_arrow-left-DlmkcTH2.js",
-      "_graduation-cap-BeICV4w7.js",
-      "_createLucideIcon-D6X761rg.js",
-      "_mail-BTGDHOsu.js"
+      "_arrow-left-Co_EPVgd.js",
+      "_graduation-cap-DYre7o8E.js",
+      "_createLucideIcon-ChtDDa9_.js",
+      "_mail-DmY5E_PC.js"
     ],
     "css": [
-      "assets/app--JsV3UGL.css"
+      "assets/app-CBS_wclG.css"
     ]
   },
   "resources/js/Pages/Student/Dashboard.tsx": {
-    "file": "assets/Dashboard-CPP0tUDm.js",
+    "file": "assets/Dashboard-C44_6749.js",
     "name": "Dashboard",
     "src": "resources/js/Pages/Student/Dashboard.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_createLucideIcon-D6X761rg.js",
-      "_log-out-B2hMIbY2.js",
-      "_trophy-B7iPhfio.js",
-      "_users-6bAvmn1A.js"
+      "_zap-BBPESIfG.js",
+      "_log-out-Ci32xuCv.js",
+      "_gamepad-2-CLezJ_oj.js",
+      "_users-Di3M1FRr.js",
+      "_trophy-b0PlVzya.js",
+      "_createLucideIcon-ChtDDa9_.js"
     ],
     "css": [
-      "assets/app--JsV3UGL.css"
+      "assets/app-CBS_wclG.css"
+    ]
+  },
+  "resources/js/Pages/Student/Games/MathRacing.tsx": {
+    "file": "assets/MathRacing-CF4imYWx.js",
+    "name": "MathRacing",
+    "src": "resources/js/Pages/Student/Games/MathRacing.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "_createLucideIcon-ChtDDa9_.js",
+      "_zap-BBPESIfG.js",
+      "_trophy-b0PlVzya.js",
+      "_circle-check-BPUzG3k7.js"
+    ],
+    "css": [
+      "assets/app-CBS_wclG.css"
     ]
   },
   "resources/js/Pages/Teacher/Classrooms/Index.tsx": {
-    "file": "assets/Index-BZn2EmUy.js",
+    "file": "assets/Index-94FjxIoS.js",
     "name": "Index",
     "src": "resources/js/Pages/Teacher/Classrooms/Index.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_TeacherLayout-DM_zCFhH.js",
-      "_circle-plus-C0Yaxsml.js",
-      "_x-eaCd7h36.js",
-      "_users-6bAvmn1A.js",
-      "_copy-B3b3WARA.js",
-      "_createLucideIcon-D6X761rg.js",
-      "_graduation-cap-BeICV4w7.js",
-      "_log-out-B2hMIbY2.js",
-      "_circle-alert-BnrzVxHJ.js"
+      "_TeacherLayout-CASVnMJw.js",
+      "_circle-plus-D82zocLJ.js",
+      "_x-BO8rDGdq.js",
+      "_users-Di3M1FRr.js",
+      "_copy-KA7wXFZY.js",
+      "_createLucideIcon-ChtDDa9_.js",
+      "_graduation-cap-DYre7o8E.js",
+      "_log-out-Ci32xuCv.js",
+      "_circle-check-BPUzG3k7.js",
+      "_circle-alert-8MfNzf_c.js"
     ],
     "css": [
-      "assets/app--JsV3UGL.css"
+      "assets/app-CBS_wclG.css"
     ]
   },
   "resources/js/Pages/Teacher/Classrooms/Show.tsx": {
-    "file": "assets/Show-BMLkZC5V.js",
+    "file": "assets/Show-CocGNsXS.js",
     "name": "Show",
     "src": "resources/js/Pages/Teacher/Classrooms/Show.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_TeacherLayout-DM_zCFhH.js",
-      "_arrow-left-DlmkcTH2.js",
-      "_copy-B3b3WARA.js",
-      "_sparkles-VEjg5Fsg.js",
-      "_createLucideIcon-D6X761rg.js",
-      "_users-6bAvmn1A.js",
-      "_graduation-cap-BeICV4w7.js",
-      "_log-out-B2hMIbY2.js",
-      "_circle-alert-BnrzVxHJ.js"
+      "_TeacherLayout-CASVnMJw.js",
+      "_arrow-left-Co_EPVgd.js",
+      "_copy-KA7wXFZY.js",
+      "_sparkles-BH1DrFq5.js",
+      "_createLucideIcon-ChtDDa9_.js",
+      "_users-Di3M1FRr.js",
+      "_graduation-cap-DYre7o8E.js",
+      "_log-out-Ci32xuCv.js",
+      "_circle-check-BPUzG3k7.js",
+      "_circle-alert-8MfNzf_c.js"
     ],
     "css": [
-      "assets/app--JsV3UGL.css"
+      "assets/app-CBS_wclG.css"
     ]
   },
   "resources/js/Pages/Teacher/Dashboard.tsx": {
-    "file": "assets/Dashboard-XDwz9GxO.js",
+    "file": "assets/Dashboard-C800yY3H.js",
     "name": "Dashboard",
     "src": "resources/js/Pages/Teacher/Dashboard.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_TeacherLayout-DM_zCFhH.js",
-      "_circle-plus-C0Yaxsml.js",
-      "_users-6bAvmn1A.js",
-      "_createLucideIcon-D6X761rg.js",
-      "_copy-B3b3WARA.js",
-      "_graduation-cap-BeICV4w7.js",
-      "_log-out-B2hMIbY2.js",
-      "_circle-alert-BnrzVxHJ.js"
+      "_TeacherLayout-CASVnMJw.js",
+      "_circle-plus-D82zocLJ.js",
+      "_users-Di3M1FRr.js",
+      "_createLucideIcon-ChtDDa9_.js",
+      "_copy-KA7wXFZY.js",
+      "_graduation-cap-DYre7o8E.js",
+      "_log-out-Ci32xuCv.js",
+      "_circle-check-BPUzG3k7.js",
+      "_circle-alert-8MfNzf_c.js"
     ],
     "css": [
-      "assets/app--JsV3UGL.css"
+      "assets/app-CBS_wclG.css"
     ]
   },
   "resources/js/Pages/Teacher/Questions/Create.tsx": {
-    "file": "assets/Create-F79VSLWN.js",
+    "file": "assets/Create-Q3xOMSYk.js",
     "name": "Create",
     "src": "resources/js/Pages/Teacher/Questions/Create.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_TeacherLayout-DM_zCFhH.js",
-      "_arrow-left-DlmkcTH2.js",
-      "_circle-plus-C0Yaxsml.js",
-      "_createLucideIcon-D6X761rg.js",
-      "_users-6bAvmn1A.js",
-      "_graduation-cap-BeICV4w7.js",
-      "_log-out-B2hMIbY2.js",
-      "_circle-alert-BnrzVxHJ.js"
+      "_TeacherLayout-CASVnMJw.js",
+      "_arrow-left-Co_EPVgd.js",
+      "_circle-check-BPUzG3k7.js",
+      "_circle-plus-D82zocLJ.js",
+      "_createLucideIcon-ChtDDa9_.js",
+      "_users-Di3M1FRr.js",
+      "_graduation-cap-DYre7o8E.js",
+      "_log-out-Ci32xuCv.js",
+      "_circle-alert-8MfNzf_c.js"
     ],
     "css": [
-      "assets/app--JsV3UGL.css"
+      "assets/app-CBS_wclG.css"
     ]
   },
   "resources/js/Pages/Teacher/Questions/Edit.tsx": {
-    "file": "assets/Edit-CQtPT9a7.js",
+    "file": "assets/Edit-CRyGiZZ4.js",
     "name": "Edit",
     "src": "resources/js/Pages/Teacher/Questions/Edit.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_TeacherLayout-DM_zCFhH.js",
-      "_arrow-left-DlmkcTH2.js",
-      "_createLucideIcon-D6X761rg.js",
-      "_users-6bAvmn1A.js",
-      "_graduation-cap-BeICV4w7.js",
-      "_log-out-B2hMIbY2.js",
-      "_circle-alert-BnrzVxHJ.js"
+      "_TeacherLayout-CASVnMJw.js",
+      "_arrow-left-Co_EPVgd.js",
+      "_circle-check-BPUzG3k7.js",
+      "_createLucideIcon-ChtDDa9_.js",
+      "_users-Di3M1FRr.js",
+      "_graduation-cap-DYre7o8E.js",
+      "_log-out-Ci32xuCv.js",
+      "_circle-alert-8MfNzf_c.js"
     ],
     "css": [
-      "assets/app--JsV3UGL.css"
+      "assets/app-CBS_wclG.css"
     ]
   },
   "resources/js/Pages/Teacher/Questions/Index.tsx": {
-    "file": "assets/Index-ClILcx_s.js",
+    "file": "assets/Index-C88g_QUe.js",
     "name": "Index",
     "src": "resources/js/Pages/Teacher/Questions/Index.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_TeacherLayout-DM_zCFhH.js",
-      "_createLucideIcon-D6X761rg.js",
-      "_circle-plus-C0Yaxsml.js",
-      "_x-eaCd7h36.js",
-      "_users-6bAvmn1A.js",
-      "_graduation-cap-BeICV4w7.js",
-      "_log-out-B2hMIbY2.js",
-      "_circle-alert-BnrzVxHJ.js"
+      "_TeacherLayout-CASVnMJw.js",
+      "_createLucideIcon-ChtDDa9_.js",
+      "_circle-plus-D82zocLJ.js",
+      "_x-BO8rDGdq.js",
+      "_users-Di3M1FRr.js",
+      "_graduation-cap-DYre7o8E.js",
+      "_log-out-Ci32xuCv.js",
+      "_circle-check-BPUzG3k7.js",
+      "_circle-alert-8MfNzf_c.js"
     ],
     "css": [
-      "assets/app--JsV3UGL.css"
+      "assets/app-CBS_wclG.css"
     ]
   },
   "resources/js/Pages/Welcome.tsx": {
-    "file": "assets/Welcome-yYBI1lj6.js",
+    "file": "assets/Welcome-D9jJFiQy.js",
     "name": "Welcome",
     "src": "resources/js/Pages/Welcome.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_sparkles-VEjg5Fsg.js",
-      "_trophy-B7iPhfio.js",
-      "_graduation-cap-BeICV4w7.js",
-      "_users-6bAvmn1A.js",
-      "_createLucideIcon-D6X761rg.js"
+      "_sparkles-BH1DrFq5.js",
+      "_gamepad-2-CLezJ_oj.js",
+      "_graduation-cap-DYre7o8E.js",
+      "_users-Di3M1FRr.js",
+      "_trophy-b0PlVzya.js",
+      "_createLucideIcon-ChtDDa9_.js"
     ],
     "css": [
-      "assets/app--JsV3UGL.css"
+      "assets/app-CBS_wclG.css"
     ]
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-DAq3IzAW.js",
+    "file": "assets/app-BFb3BE90.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -317,6 +364,7 @@
       "resources/js/Pages/Auth/TeacherLogin.tsx",
       "resources/js/Pages/Auth/TeacherRegister.tsx",
       "resources/js/Pages/Student/Dashboard.tsx",
+      "resources/js/Pages/Student/Games/MathRacing.tsx",
       "resources/js/Pages/Teacher/Classrooms/Index.tsx",
       "resources/js/Pages/Teacher/Classrooms/Show.tsx",
       "resources/js/Pages/Teacher/Dashboard.tsx",
@@ -326,7 +374,7 @@
       "resources/js/Pages/Welcome.tsx"
     ],
     "css": [
-      "assets/app--JsV3UGL.css"
+      "assets/app-CBS_wclG.css"
     ]
   }
 }

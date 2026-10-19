@@ -32,6 +32,7 @@ Route::get('/', function () {
 | Autentikasi Siswa (Tanpa Email, Kode Kelas + Nama + PIN)
 |--------------------------------------------------------------------------
 */
+Route::get('/login', fn () => redirect()->route('student.login'))->name('login');
 Route::get('/masuk-siswa', [StudentAuthController::class, 'showLoginForm'])->name('student.login');
 Route::post('/masuk-siswa', [StudentAuthController::class, 'login'])->name('student.login.submit');
 
@@ -53,6 +54,12 @@ Route::post('/daftar-guru', [TeacherAuthController::class, 'register'])->name('t
 Route::middleware(['auth', 'role:siswa'])->group(function () {
     Route::get('/siswa/dashboard', [StudentDashboardController::class, 'index'])->name('student.dashboard');
     Route::post('/siswa/logout', [StudentAuthController::class, 'logout'])->name('student.logout');
+
+    // Game Balapan Perkalian & Engine API
+    Route::get('/siswa/game/balapan-perkalian', [\App\Http\Controllers\Game\GamePlayController::class, 'mathRacing'])->name('student.game.math-racing');
+    Route::post('/api/game/session/start', [\App\Http\Controllers\Game\GamePlayController::class, 'startSession'])->name('game.session.start');
+    Route::post('/api/game/session/submit-answer', [\App\Http\Controllers\Game\GamePlayController::class, 'submitAnswer'])->name('game.session.submit');
+    Route::post('/api/game/session/finish', [\App\Http\Controllers\Game\GamePlayController::class, 'finishSession'])->name('game.session.finish');
 });
 
 /*
