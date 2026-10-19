@@ -51,36 +51,28 @@ Pastikan paket hosting cPanel Anda memenuhi persyaratan berikut:
 
 ---
 
-### 4. Struktur Folder yang Aman di cPanel
+### 4. Struktur Folder & Deploy via Git Version Control di cPanel
 
-Agar file sensitif seperti `.env`, folder `app/`, `database/`, dan file konfigurasi **TIDAK DAPAT** diakses langsung dari browser:
+Berdasarkan konfigurasi subdomain Anda (**`edugame.vxai.online`** di direktori `/home/chaf2674/edugame.vxai.online`):
 
-#### Opsi A: Subdomain / Addon Domain (Paling Direkomendasikan)
-1. Buat subdomain di menu **Domains** (misal: `game.domainanda.com`).
-2. Atur **Document Root** langsung mengarah ke folder `public/`:
+#### Metode 1: Menggunakan cPanel "Git™ Version Control" (Paling Cepat & Praktis)
+1. Buka cPanel > Menu **Git™ Version Control**.
+2. Klik tombol **Create**.
+3. Masukkan informasi:
+   - **Clone URL**: `https://github.com/Vicky1902-py/edugame.git`
+   - **Repository Path**: `/home/chaf2674/edugame.vxai.online`
+   - **Repository Name**: `edugame`
+4. Klik **Create**. cPanel akan mengkloning seluruh source code beserta build frontend (`public/build`) secara otomatis.
+
+#### Pengaturan Document Root Subdomain:
+1. Masuk ke cPanel > **Domains** > cari `edugame.vxai.online`.
+2. Klik ikon pensil pada kolom **Document Root**.
+3. Arahkan Document Root ke:
    ```text
-   /home/username/edugame/public
+   /home/chaf2674/edugame.vxai.online/public
    ```
-   Dengan cara ini, folder `edugame` berada di luar `public_html`, dan hanya folder `public` yang dapat diakses publik.
-
-#### Opsi B: Main Domain (`public_html`)
-Jika Anda harus menggunakan root domain utama pada `public_html`:
-1. Tempatkan seluruh source code Laravel di:
-   ```text
-   /home/username/edugame/
-   ```
-2. Salin seluruh isi folder `/home/username/edugame/public/*` ke dalam `/home/username/public_html/`.
-3. Buka file `/home/username/public_html/index.php`, ubah baris:
-   ```php
-   require __DIR__.'/../vendor/autoload.php';
-   $app = require_once __DIR__.'/../bootstrap/app.php';
-   ```
-   Menjadi:
-   ```php
-   require __DIR__.'/../edugame/vendor/autoload.php';
-   $app = require_once __DIR__.'/../edugame/bootstrap/app.php';
-   ```
-4. Pastikan file `.htaccess` bawaan EduGame tetap berada di dalam `public_html`.
+   *(PENTING: Mengarahkan Document Root ke folder `public` memastikan keamanan 100% sehingga file `.env` dan kode backend tidak bisa diakses dari browser).*
+4. Jika Document Root terkunci di `/home/chaf2674/edugame.vxai.online`, jangan khawatir: file `.htaccess` bawaan EduGame di root folder sudah otomatis mengalihkan semua request masuk ke folder `public/`.
 
 ---
 
